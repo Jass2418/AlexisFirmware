@@ -25,6 +25,7 @@ class L298N{
       void run(uint8_t direction);
       void stop();
       void reset();
+      void initialize();
       boolean isMoving();
    private:
       byte _pinEnable;

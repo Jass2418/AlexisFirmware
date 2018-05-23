@@ -20,6 +20,8 @@ LED greenLed(GREENLEDPIN);
 
 void setup() {
     Particle.function("Move", CloudFunction);
+    motor.initialize();
+    motor.stop();
 }
 
 void loop(){
@@ -28,21 +30,26 @@ void loop(){
 }
 
 void PressedLeft(){
+    redLed.off();
+    yellowLed.off();
     greenLed.on();
     motor.forward();
 }
 
 void PressedRight(){
+    redLed.off();   
+    greenLed.off(); 
     yellowLed.on();
-    motor.backwardFor(2000);
     motor.stop();
+    motor.backward();
+    //motor.stop();
 }
 
 void PressedLimit(){
-    redLed.off();
+    yellowLed.off();
+    greenLed.off();    
     motor.stop();
     redLed.on();
-    greenLed.off();
 }
 
 int CloudFunction(String string){

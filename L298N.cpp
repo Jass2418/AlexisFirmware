@@ -123,3 +123,9 @@ boolean L298N::isMoving(){
 void L298N::fakeCallback(){
 
 }
+
+void L298N::initialize(){
+  pinMode(_pinEnable, OUTPUT);
+  pinMode(_pinIN1, OUTPUT);
+  pinMode(_pinIN2, OUTPUT);
+}
